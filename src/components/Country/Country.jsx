@@ -1,24 +1,30 @@
+/* eslint-disable no-unused-vars */
 
+import { useState } from 'react';
 import '../Country/Country.css'
 const Country = ({ country }) => {
-    const { name, capital, population, region, languages, flags, continents } = country;
-
+    const { name, capital, population, region, flags, continents, cca3 } = country;
+    const [visited, setVisited] = useState(false);
+    const handleVisited = () => {
+        // setVisited(true);
+        visited ? setVisited(false) : setVisited(true);
+    }
     console.log(country);
     return (
         <div className="box">
             <h3>Name : {name.common}</h3>
-            <img src={flags.png} alt="" />
+            <img src={flags.png} alt={`${name.common} Flag`} />
             <h3>Official name : {name.official} </h3>
             <h3>continents : {continents} </h3>
             <h3>Capital : {capital} </h3>
             <h3>Region : {region} </h3>
             <h3>Population : {population} </h3>
-            {/* <p>Languages: {Object.values(languages).join(', ')}</p> */}
-            {/* <p>Capital: {capital[0]}</p>
-      <p>Population: {population}</p>
-      <p>Region: {region}</p>
-     
-      <img src={flag.png} alt={`${name.common} Flag`} /> */}
+            <h3>Code : <small>{cca3}</small></h3>
+            <button onClick={handleVisited}>{visited ? 'Visited' : 'Not visited'}</button>
+
+
+
+
         </div>
     );
 };
