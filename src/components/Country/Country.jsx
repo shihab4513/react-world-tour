@@ -11,8 +11,10 @@ const Country = ({ country }) => {
     }
     console.log(country);
     return (
-        <div className="box">
-            <h3>Name : {name.common}</h3>
+        // conditional class if visited then  'visited' class added 
+        <div className={`box ${visited && 'visited'}`}>
+            {/* below code is also conditional style , if visited header text color will be purple else white */}
+            <h3 style={{ color: visited ? 'purple' : 'white' }}>Name : {name.common}</h3>
             <img src={flags.png} alt={`${name.common} Flag`} />
             <h3>Official name : {name.official} </h3>
             <h3>continents : {continents} </h3>
@@ -20,6 +22,7 @@ const Country = ({ country }) => {
             <h3>Region : {region} </h3>
             <h3>Population : {population} </h3>
             <h3>Code : <small>{cca3}</small></h3>
+            <button>Mark Visited</button><br />
             <button onClick={handleVisited}>{visited ? 'Visited' : 'Not visited'}</button>
 
 
