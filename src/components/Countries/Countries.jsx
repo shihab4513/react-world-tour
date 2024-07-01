@@ -15,8 +15,10 @@ const Countries = () => {
             .then(res => res.json())
             .then(data => setCountries(data))
     }, []);
+    // Where there will be state there will be handle as well
 
     const handleVisitedCountry = country => {
+        console.log('Add this to your visited countries');
         console.log(country);
     }
 
@@ -35,7 +37,9 @@ const Countries = () => {
             <div className="country-container">
                 {
 
-                    countries.map(country => <Country key={country.name.coomon} country={country}></Country>)
+                    countries.map(country => <Country key={country.name.coomon}
+                        // we can send function as props as well. we can send anything as props
+                        handleVisitedCountry={handleVisitedCountry} country={country}></Country>)
                 }
             </div>
 

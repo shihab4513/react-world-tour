@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import '../Country/Country.css'
-const Country = ({ country }) => {
+const Country = ({ country, handleVisitedCountry }) => {
     const { name, capital, population, region, flags, continents, cca3 } = country;
     const [visited, setVisited] = useState(false);
     const handleVisited = () => {
@@ -10,6 +10,7 @@ const Country = ({ country }) => {
         visited ? setVisited(false) : setVisited(true);
     }
     console.log(country);
+    console.log(handleVisitedCountry);
     return (
         // conditional class if visited then  'visited' class added 
         <div className={`box ${visited && 'visited'}`}>
