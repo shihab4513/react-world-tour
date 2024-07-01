@@ -66,7 +66,7 @@ const Countries = () => {
             <div className="country-container">
                 {
 
-                    countries.map(country => <Country key={country.name.coomon}
+                    countries.map(country => <Country key={country.cca3}
                         // we can send function as props as well. we can send anything as props
                         handleVisitedCountry={handleVisitedCountry} handleVisitedFlag={handleVisitedFlag} country={country}></Country>)
                 }

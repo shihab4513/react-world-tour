@@ -12,12 +12,11 @@
     width: 50px;
 }
 
+
 .flag-flex {
     display: flex;
     flex-direction: row;
     gap: 100px;
     margin-bottom: 50px;
     margin-top: 40px;
-
-
 }
