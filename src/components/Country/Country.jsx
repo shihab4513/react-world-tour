@@ -9,8 +9,11 @@ const Country = ({ country, handleVisitedCountry }) => {
         // setVisited(true);
         visited ? setVisited(false) : setVisited(true);
     }
+    // const passWithParams=()=>{
+    //     handleVisitedCountry(country);
+    // }
     console.log(country);
-    console.log(handleVisitedCountry);
+    // console.log(handleVisitedCountry);
     return (
         // conditional class if visited then  'visited' class added 
         <div className={`box ${visited && 'visited'}`}>
@@ -23,7 +26,10 @@ const Country = ({ country, handleVisitedCountry }) => {
             <h3>Region : {region} </h3>
             <h3>Population : {population} </h3>
             <h3>Code : <small>{cca3}</small></h3>
-            <button>Mark Visited</button><br />
+            {/* inside onclick we can send parameter inside function as well for that we have to use an empty arrow function inside that our function with parameter we can send */}
+            <button onClick={() => {
+                handleVisitedCountry(country);
+            }}>Mark Visited</button><br />
             <button onClick={handleVisited}>{visited ? 'Visited' : 'Not visited'}</button>
 
 
