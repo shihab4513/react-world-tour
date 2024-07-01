@@ -1,8 +1,23 @@
-.country-container{
- display: grid;
- grid-template-columns: repeat(3,1fr);
- gap: 10px;
+.country-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
 }
-.text-center{
+
+.text-center {
     text-align: center;
+}
+
+.flag-container img {
+    width: 50px;
+}
+
+.flag-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    margin-bottom: 50px;
+    margin-top: 40px;
+
+
 }

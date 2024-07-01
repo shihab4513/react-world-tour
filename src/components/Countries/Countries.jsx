@@ -9,6 +9,7 @@ import '../Countries/Countries.css'
 const Countries = () => {
     const [countries, setCountries] = useState([]);
     const [visitedCountries, setVisitedCountries] = useState([]);
+    const [visitedFlags, setVisitedFlags] = useState([]);
     useEffect(() => {
         const url = 'https://restcountries.com/v3.1/all';
         fetch(url)
@@ -25,6 +26,12 @@ const Countries = () => {
         const newVisitedCountries = [...visitedCountries, country];
         setVisitedCountries(newVisitedCountries);
     }
+    const handleVisitedFlag = country => {
+        const newVisitedFlag = [...visitedFlags, country];
+        setVisitedFlags(newVisitedFlag);
+    }
+    // remove an item from an array in a state
+    // use filter to select all the element except the one you want to remove
 
     return (
 
@@ -32,7 +39,7 @@ const Countries = () => {
         <div >
             <h1 className="text-center">Countries : {countries.length}</h1>
             <div>
-                <h5>Visited Countries {visitedCountries.length} </h5>
+                <h3>Visited Countries : {visitedCountries.length} </h3>
                 <ul>
                     {
                         visitedCountries.map(country => <li key={country.cca3}> {country.name.common} </li>)
@@ -41,12 +48,27 @@ const Countries = () => {
                 </ul>
             </div>
 
+            <div className="flag-container">
+                <h3>Visited Flags: {visitedFlags.length} </h3>
+                <div className="flag-flex">
+                    {
+                        visitedFlags.map(country =>
+
+                            <img key={country.cca3} src={country.flags.png} />
+
+                        )
+                    }
+                </div>
+
+
+            </div>
+
             <div className="country-container">
                 {
 
                     countries.map(country => <Country key={country.name.coomon}
                         // we can send function as props as well. we can send anything as props
-                        handleVisitedCountry={handleVisitedCountry} country={country}></Country>)
+                        handleVisitedCountry={handleVisitedCountry} handleVisitedFlag={handleVisitedFlag} country={country}></Country>)
                 }
             </div>
 
